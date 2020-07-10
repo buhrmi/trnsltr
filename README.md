@@ -17,4 +17,4 @@ Try it here: https://trnsltr.herokuapp.com
 
 EARLY PROTOTYPE. USE AT YOUR OWN RISK.
 
-If anybody would like to steal this idea and turn it into a commercial app, please do. I would pay for that.
+The UI is crappy and hard to use if you have a large number of translation keys.
