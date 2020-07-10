@@ -15,8 +15,8 @@
       <% for key, translations in @translations %>
         <tr>
           <td><%= key %></td>
-          <% for locale, translation in translations %>
-            <td><input name="translations[<%=locale%>][<%=key.split('.').join('][')%>]" value="<%= translation %>"></td>
+          <% for locale in @locales %>
+            <td><input name="translations[<%=locale%>][<%=key.split('.').join('][')%>]" value="<%= translations[locale] %>"></td>
           <% end %>
         </tr>
       <% end%>
