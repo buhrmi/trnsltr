@@ -2,6 +2,7 @@ class ReposController < ApplicationController
   def show
     @org = params[:org]
     @repo = params[:repo]
+    @branch = 'master'
     @translations = {}
     @locales = []
     mashes = github.repos.contents.get @org, @repo, 'config/locales' rescue nil
@@ -13,7 +14,6 @@ class ReposController < ApplicationController
       yml = Base64.decode64 file.content
       translations = YAML.load(yml)
       add(translations[locale], locale)
-      
     end
   end
 

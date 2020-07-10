@@ -1,7 +1,10 @@
 <h1><%= @org %>/<%= @repo %></h1>
 
 <% if @translations %>
-  <form action="/translations" method="POST">
+  <%= form_tag translations_path do %>
+    <%= hidden_field_tag :org, @org %>
+    <%= hidden_field_tag :repo, @repo %>
+    <%= hidden_field_tag :branch, @branch %>
     <table>
       <tr>
         <th>Key</th>
@@ -13,13 +16,13 @@
         <tr>
           <td><%= key %></td>
           <% for locale, translation in translations %>
-            <td><input name="<%=locale%>.<%=key%>" value="<%= translation %>"></td>
+            <td><input name="translations[<%=locale%>][<%=key.split('.').join('][')%>]" value="<%= translation %>"></td>
           <% end %>
         </tr>
       <% end%>
     </table>
-    <button>Commit changes to master</button>
-  </form>
+    <button>Commit changes to <%= @branch %></button>
+  <% end %>
 <% else %>
   This repo does not seem to have a config/locales directory with .yml files.
 <% end %>
