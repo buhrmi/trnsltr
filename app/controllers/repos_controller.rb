@@ -16,7 +16,7 @@ class ReposController < ApplicationController
       yml = Base64.decode64 file.content
       translations = YAML.load(yml)
       add(translations[locale], locale) if translations[locale]
-    end
+    end if mashes
   end
 
   def index
