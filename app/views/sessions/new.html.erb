@@ -1,0 +1,18 @@
+<% if current_user %>
+  <h1>Select repository to translate</h1>
+  <h2><%= current_user.login %>'s repositories</h2>
+  <% github.repos.list do |repo| %>
+    <%= link_to repo.name, "/#{current_user.login}/#{repo.name}" %>
+  <% end %>
+
+  <% github.orgs.list do |org| %>
+    <h2><%= org.login %>'s repositories</h2>
+    <% github.repos.list org: org.login do |repo| %>
+      <%= link_to repo.name, "/#{org.login}/#{repo.name}" %>
+    <% end %>
+
+  <% end %>
+<% else %>
+  <%= link_to 'Log in with GitHub', GITHUB.authorize_url(scope: 'repo') %>
+
+<% end %>

@@ -1,0 +1,25 @@
+<h1><%= @org %>/<%= @repo %></h1>
+
+<% if @translations %>
+  <form action="/translations" method="POST">
+    <table>
+      <tr>
+        <th>Key</th>
+        <% for locale in @locales %>
+          <th><%= locale %></th>
+        <% end %>
+      <tr>
+      <% for key, translations in @translations %>
+        <tr>
+          <td><%= key %></td>
+          <% for locale, translation in translations %>
+            <td><input name="<%=locale%>.<%=key%>" value="<%= translation %>"></td>
+          <% end %>
+        </tr>
+      <% end%>
+    </table>
+    <button>Commit changes to master</button>
+  </form>
+<% else %>
+  This repo does not seem to have a config/locales directory with .yml files.
+<% end %>

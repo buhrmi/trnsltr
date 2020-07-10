@@ -1,0 +1,1 @@
+GITHUB = Github.new client_id: '192c012b991fabce2ba7', client_secret: ENV['CLIENT_SECRET']
