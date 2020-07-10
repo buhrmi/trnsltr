@@ -1,6 +1,6 @@
 <h1><%= @org %>/<%= @repo %></h1>
 
-<% if @translations %>
+<% unless @translations.empty? %>
   <%= form_tag translations_path do %>
     <%= hidden_field_tag :org, @org %>
     <%= hidden_field_tag :repo, @repo %>
@@ -24,5 +24,5 @@
     <button>Commit changes to <%= @branch %></button>
   <% end %>
 <% else %>
-  This repo does not seem to have a config/locales directory with .yml files.
+  Couldn't find any translations. Does this repo have a config/locales directory with .yml files in it?
 <% end %>

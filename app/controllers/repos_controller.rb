@@ -13,7 +13,7 @@ class ReposController < ApplicationController
       file = github.repos.contents.get @org, @repo, mash.path
       yml = Base64.decode64 file.content
       translations = YAML.load(yml)
-      add(translations[locale], locale)
+      add(translations[locale], locale) if translations[locale]
     end
   end
 
