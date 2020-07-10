@@ -8,6 +8,7 @@ Try it here: https://trnsltr.herokuapp.com
 
 ## Todo
 
+- [ ] Make a "real" UI with Svelte
 - [ ] Make branch configurable
 - [ ] Search for keys
 - [ ] Collapse/expand keys 
