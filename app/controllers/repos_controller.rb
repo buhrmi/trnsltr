@@ -10,13 +10,15 @@ class ReposController < ApplicationController
     mashes = github.repos.contents.get @org, @repo, 'config/locales' rescue nil
     for mash in mashes
       continue unless mash.name.end_with? '.yml'
-      locale = mash.name.split('.').first
-      @locales << locale
       file = github.repos.contents.get @org, @repo, mash.path
       yml = Base64.decode64 file.content
       translations = YAML.load(yml)
-      add(translations[locale], locale) if translations[locale]
+      for locale, values in translations
+        @locales << locale
+        add(values, locale) if values
+      end if translations
     end if mashes
+    @locales.uniq!
   end
 
   def index
