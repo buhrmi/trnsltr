@@ -8,7 +8,8 @@ Try it here: https://trnsltr.herokuapp.com
 
 ## Todo
 
-- [ ] Make a "real" UI with Svelte
+- [ ] Arrays are getting messed up (`abbr_day_names` etc.)
+- [ ] Make a "real" UI
 - [ ] Make branch configurable
 - [ ] Search for keys
 - [ ] Collapse/expand keys 
