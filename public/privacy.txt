@@ -1,0 +1,1 @@
+Our app does not store any personal and/or private information. It doesn't even have a database.
