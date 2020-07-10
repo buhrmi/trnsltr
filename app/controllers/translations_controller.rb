@@ -16,8 +16,10 @@ class TranslationsController < ApplicationController
         branch: branch,
         content: content
       }
-      # github.repos.contents.create org, repo, path, args
+      last_result = github.repos.contents.create org, repo, path, args
     end
+    url = "https://github.com/#{org}/#{repo}/commit/#{last_result.commit.sha}"
+    redirect_to url
   end
 
   private
