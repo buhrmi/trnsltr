@@ -14,7 +14,7 @@
   <% end %>
 <% else %>
   <h1>Welcome to trnsltr</h1>
-  <p>trnsltr connects to your GitHub repo, fetches all .yml files from the config/locales directory, puts the in a grid, and commits them back to master when you're done.</p>
+  <p>trnsltr connects to your GitHub repo, fetches all .yml files from the config/locales directory, puts the in a grid, and commits them back to master when you're done. trnsltr is <%= link_to 'open source', 'https://github.com/buhrmi/trnsltr' %> and made by <%= link_to 'buhrmi', 'https://github.com/buhrmi' %></p>
   <%= link_to 'Log in with GitHub', GITHUB.authorize_url(scope: 'repo') %>
 
 <% end %>
