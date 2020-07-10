@@ -1,20 +1,4 @@
-<% if current_user %>
-  <h1>Select repository to translate</h1>
-  <h2><%= current_user.login %>'s repositories</h2>
-  <% github.repos.list do |repo| %>
-    <%= link_to repo.name, "/#{current_user.login}/#{repo.name}" %>
-  <% end %>
 
-  <% github.orgs.list do |org| %>
-    <h2><%= org.login %>'s repositories</h2>
-    <% github.repos.list org: org.login do |repo| %>
-      <%= link_to repo.name, "/#{org.login}/#{repo.name}" %>
-    <% end %>
-
-  <% end %>
-<% else %>
-  <h1>Welcome to trnsltr</h1>
-  <p>trnsltr connects to your GitHub repo, fetches all .yml files from the config/locales directory, puts the in a grid, and commits them back to master when you're done. trnsltr is <%= link_to 'open source', 'https://github.com/buhrmi/trnsltr' %> and made by <%= link_to 'buhrmi', 'https://github.com/buhrmi' %></p>
-  <%= link_to 'Log in with GitHub', GITHUB.authorize_url(scope: 'repo') %>
-
-<% end %>
+<h1>Welcome to trnsltr</h1>
+<p>trnsltr connects to your GitHub repo, fetches all .yml files from the config/locales directory, puts the in a grid, and commits them back to master when you're done. trnsltr is <%= link_to 'open source', 'https://github.com/buhrmi/trnsltr' %> and made by <%= link_to 'buhrmi', 'https://github.com/buhrmi' %></p>
+<%= link_to 'Log in with GitHub', GITHUB.authorize_url(scope: 'repo') %>

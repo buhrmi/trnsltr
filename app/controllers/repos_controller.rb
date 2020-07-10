@@ -1,4 +1,6 @@
 class ReposController < ApplicationController
+  before_action :require_user
+
   def show
     @org = params[:org]
     @repo = params[:repo]
@@ -15,6 +17,9 @@ class ReposController < ApplicationController
       translations = YAML.load(yml)
       add(translations[locale], locale) if translations[locale]
     end
+  end
+
+  def index
   end
 
 

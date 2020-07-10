@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def github
     @github ||= Github.new oauth_token: session[:token] if session[:token]
   end
+
+  def require_user
+    redirect_to root_url unless current_user
+  end
 end
