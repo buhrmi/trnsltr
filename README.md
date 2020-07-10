@@ -8,6 +8,7 @@ Try it here: https://trnsltr.herokuapp.com
 
 - [ ] Arrays are getting messed up (`abbr_day_names` etc.)
 - [ ] Make a "real" UI
+- [ ] Make PR instead of commit
 - [ ] Make branch configurable
 - [ ] Search for keys
 - [ ] Collapse/expand keys 
