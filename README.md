@@ -1,5 +1,7 @@
 # trnsltr
 
+> I stopped working on this project. Please check out https://gitlocalize.com. It offers the same functionality (also free).
+
 A simple tool that connects to your GitHub repo, fetches all `.yml` files from `config/locales`, puts them into a table for editing, and commits them back to master when you're done.
 
 Try it here: https://trnsltr.herokuapp.com
